@@ -1,0 +1,40 @@
+<html>
+
+  <head>
+    <title>a</title>
+    <link type="text/css" rel="stylesheet" media="all" href="style.css" />
+    <script language="javascript" type="text/javascript" src="complexPasswd.js" ></script>
+  </head>
+  
+  <body> 
+    <form id="form1" name="form1">
+    <label for="password1">Password: </label><input type="password" name="password1" id="password1" onkeyup="refreshTest();" />
+    <label for="password1">Full name: </label><input type="text" name="name" id="name" onkeyup="refreshTest();" />
+    <label for="password1">Username: </label><input type="text" name="username" id="username" onkeyup="refreshTest();" />
+    
+    <script type="text/javascript">
+      function refreshTest() {
+        testpasswd(
+          document.getElementById('password1').value,
+          document.getElementById('name').value,
+          document.getElementById('username').value
+          );
+      }
+    </script>
+    
+    <ul>
+      <li id="reqLength" class="red"> The password is at least six characters long.</li>
+      <li id="reqQuality" class="red">The password contains characters from at least three of the following four categories:</li>
+      <ul>
+        <li id="reqUppercase" class="red">English uppercase characters (A - Z)</li>
+        <li id="reqLowercase" class="red">English lowercase characters (a - z)</li>
+        <li id="reqDigits" class="red">Base 10 digits (0 - 9)</li>
+        <li id="reqNoAlphaNum" class="red">Non-alphanumeric (For example: !, $, #, or %)</li>
+        <!--<li id="reqUnicode" class="red">Unicode characters</li>-->
+      </ul>
+      <li id="reqNoname" class="green">The password does not contain three or more characters from the user's account name.</li>
+    </ul>
+    
+    </form>
+  </body>
+</html>
